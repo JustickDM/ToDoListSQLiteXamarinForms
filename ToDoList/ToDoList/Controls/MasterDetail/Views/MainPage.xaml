@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms" 
+				  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+				  xmlns:views="clr-namespace:ToDoList.Controls.MasterDetail.Views"
+				  x:Class="ToDoList.Controls.MasterDetail.Views.MainPage">
+  <MasterDetailPage.Master>
+        <views:MasterPage  x:Name="masterPage" 
+                           BackgroundColor="#2196F3"
+                           Title="Menu"/>
+  </MasterDetailPage.Master>
+	<MasterDetailPage.Detail>
+		<NavigationPage>
+			<x:Arguments>
+				<views:ToDoListPage/>
+			</x:Arguments>
+		</NavigationPage>
+	</MasterDetailPage.Detail>
+</MasterDetailPage>

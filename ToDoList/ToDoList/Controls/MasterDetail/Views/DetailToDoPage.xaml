@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToDoList.Controls.MasterDetail.Views.DetailToDoPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Update"
+                     Clicked="Update_Clicked"/>
+        <ToolbarItem Text="Remove"
+                     Clicked="Remove_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="#"/>
+                <Entry x:Name="enNoteId" Text="{Binding Note.NoteId}" Placeholder="Id"/>
+            </StackLayout>
+
+            <Entry x:Name="enNoteText" Text="{Binding Note.NoteText}" Placeholder="Description"/>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Date Start"/>
+                <DatePicker x:Name="dpNoteStart" Date="{Binding Note.NoteStart}"/>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Date Finish"/>
+                <DatePicker x:Name="dpNoteFinish" Date="{Binding Note.NoteFinish}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
