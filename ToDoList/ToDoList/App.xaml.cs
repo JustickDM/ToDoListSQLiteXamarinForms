@@ -4,6 +4,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using ToDoList.ViewModels;
+using ToDoList.Controls.MasterDetail.Views;
 
 [assembly: XamlCompilation (XamlCompilationOptions.Compile)]
 namespace ToDoList
@@ -14,7 +15,7 @@ namespace ToDoList
 		{
 			InitializeComponent();
 
-            MainPage = new ToDoList.Controls.MasterDetail.Views.MainPage()
+            MainPage = new MainPage()
             {
                 BindingContext = new ToDoListViewModel(notesRepository),
             };

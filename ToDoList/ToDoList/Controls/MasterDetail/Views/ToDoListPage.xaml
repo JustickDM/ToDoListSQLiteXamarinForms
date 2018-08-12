@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
-			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 x:Class="ToDoList.Controls.MasterDetail.Views.ToDoListPage"
 			 Title="ToDoList Page">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add"
-                     Clicked="ToolbarItem_Clicked">
+                     Clicked="Add_Clicked">
         </ToolbarItem>
     </ContentPage.ToolbarItems>
     
@@ -15,16 +15,15 @@
 
             <ListView x:Name="List" 
                   ItemsSource="{Binding Notes}"
-                  ItemSelected="List_ItemSelected"
-                  SelectedItem="{Binding SelectedNote, Mode=TwoWay}">
+                  ItemSelected="List_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
-                                <Label Text="{Binding NoteId}"/>
-                                <Label Text="{Binding NoteText}"/>
-                                <Label Text="{Binding NoteDateTimeStart}"/>
-                                <Label Text="{Binding NoteDateTimeFinish}"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding NoteId}"/>
+                                    <Label Text="{Binding NoteText}"/>
+                                </StackLayout>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

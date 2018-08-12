@@ -15,12 +15,12 @@ namespace ToDoList.Controls.MasterDetail.Views
             if (e.SelectedItem != null)
             {
                 var note = (Note)e.SelectedItem;
-                //await Navigation.PushModalAsync(new NavigationPage(new DetailToDoPage(note)));
+                await Navigation.PushModalAsync(new NavigationPage(new DetailToDoPage(note)));
                 List.SelectedItem = null;
             }
         }
 
-        private async void ToolbarItem_Clicked(object sender, System.EventArgs e)
+        private async void Add_Clicked(object sender, System.EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new NewToDoPage()));
         }

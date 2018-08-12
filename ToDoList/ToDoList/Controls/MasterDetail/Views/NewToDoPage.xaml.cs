@@ -14,18 +14,19 @@ namespace ToDoList.Controls.MasterDetail.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class NewToDoPage : ContentPage
 	{
-        private Note Note = new Note();
+        public Note Note { get; set; }
 
         public NewToDoPage ()
 		{
 			InitializeComponent ();
+            Note = new Note();
+            BindingContext = this;
 		}
 
-        private void Save_Clicked(object sender, EventArgs e)
+        private async void Save_Clicked(object sender, EventArgs e)
         {
-            Note.NoteText = enNoteText.Text;
-            Note.NoteDateTimeStart = dpNoteStart.Date;
-            Note.NoteDateTimeFinish = dpNoteStart.Date;
+            MessagingCenter.Send(this, "AddCommand", Note);
+            await Navigation.PopModalAsync();
         }
     }
 }

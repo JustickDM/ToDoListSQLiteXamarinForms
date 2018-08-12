@@ -4,15 +4,16 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Input;
+using ToDoList.Controls.MasterDetail.Views;
 using ToDoList.Interfaces;
 using ToDoList.Models;
 using Xamarin.Forms;
 
 namespace ToDoList.ViewModels
 {
-    public class ToDoListViewModel : INotifyPropertyChanged
+    public class ToDoListViewModel : BaseViewModel
     {
-        private readonly INotesRepository _notesRepository;
+        private readonly INotesRepository NotesRepository;
 
         private IEnumerable<Note> notes;
         public IEnumerable<Note> Notes
@@ -21,141 +22,27 @@ namespace ToDoList.ViewModels
             set {notes = value; OnPropertyChanged(); }
         }
 
-        private string noteId;
-        public string NoteId
+        public ToDoListViewModel(INotesRepository _notesRepository)
         {
-            get => noteId;
-            set { noteId = value; OnPropertyChanged(); }
-        }
-
-        private string noteText;
-        public string NoteText
-        {
-            get => noteText;
-            set { noteText = value; OnPropertyChanged(); }
-        }
-
-        private DateTime noteStart;
-        public DateTime NoteStart
-        {
-            get => noteStart;
-            set { noteStart = value; OnPropertyChanged(); }
-        }
-
-        private DateTime noteFinish;
-        public DateTime NoteFinish
-        {
-            get => noteFinish;
-            set { noteFinish = value; OnPropertyChanged(); }
-        }
-
-        public async void AddNote(Note note)
-        {
-            await _notesRepository.AddNoteAsync(note);
-            Notes = await _notesRepository.GetNotesAsync();
-        }
-
-        public async void UpdateNote(Note note)
-        {
-            await _notesRepository.UpdateNoteAsync(note);
-            Notes = await _notesRepository.GetNotesAsync();
-        }
-
-        public async void RemoveNote(int noteId)
-        {
-            await _notesRepository.RemoveNoteAsync(noteId);
-            Notes = await _notesRepository.GetNotesAsync();
-        }
-
-        public ICommand RefreshCommand
-        {
-            get
+            NotesRepository = _notesRepository;
+            Notes = NotesRepository.GetNotesAsync().Result;
+            MessagingCenter.Subscribe<NewToDoPage, Note>(this, "AddCommand", async (obj, note) =>
             {
-                return new Command(async () =>
-                {
-                    Notes = await _notesRepository.GetNotesAsync();
-                });
-            }
-        }
-
-        public ICommand AddCommand
-        {
-            get
+                var _note = note as Note;
+                await NotesRepository.AddNoteAsync(_note);
+                Notes = NotesRepository.GetNotesAsync().Result;
+            });
+            MessagingCenter.Subscribe<DetailToDoPage, Note>(this, "UpdateCommand", async (obj, note) =>
             {
-                return new Command(async () =>
-                {
-                    var note = new Note
-                    {
-                        NoteText = NoteText,
-                        NoteDateTimeStart = NoteStart,
-                        NoteDateTimeFinish = NoteFinish
-                    };
-                    SetNull();
-                    await _notesRepository.AddNoteAsync(note);
-                    Notes = await _notesRepository.GetNotesAsync();
-                });
-            }
-        }
-
-        public ICommand RemoveCommand
-        {
-            get
+                var _note = note as Note;
+                await NotesRepository.UpdateNoteAsync(_note);
+                Notes = NotesRepository.GetNotesAsync().Result;
+            });
+            MessagingCenter.Subscribe<DetailToDoPage, int>(this, "RemoveCommand", async (obj, noteId) =>
             {
-                return new Command(async () =>
-                {
-                    await _notesRepository.RemoveNoteAsync(int.Parse(NoteId));
-                    SetNull();
-                    Notes = await _notesRepository.GetNotesAsync();
-                });
-            }
-        }
-
-        public ICommand UpdateCommand
-        {
-            get
-            {
-                return new Command(async () =>
-                {
-                    var note = new Note
-                    {
-                        NoteId = int.Parse(NoteId),
-                        NoteText = NoteText,
-                        NoteDateTimeStart = NoteStart,
-                        NoteDateTimeFinish = NoteFinish
-                    };
-                    await _notesRepository.UpdateNoteAsync(note);
-                    Notes = await _notesRepository.GetNotesAsync();
-                });
-            }
-        }
-
-        private void SetNull()
-        {
-            NoteId = null;
-            NoteText = null;
-            NoteStart = DateTime.Now;
-            NoteFinish = DateTime.Now;
-        }
-
-        public ToDoListViewModel(INotesRepository notesRepository)
-        {
-            _notesRepository = notesRepository;
-            Notes = _notesRepository.GetNotesAsync().Result;
-            var note = new Note
-            {
-                NoteText = "test_1",
-                NoteDateTimeStart = DateTime.Now,
-                NoteDateTimeFinish = DateTime.Now,
-            };
-            SetNull();
-            _notesRepository.AddNoteAsync(note);
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+                await NotesRepository.RemoveNoteAsync(noteId);
+                Notes = NotesRepository.GetNotesAsync().Result;
+            });
         }
     }
 }

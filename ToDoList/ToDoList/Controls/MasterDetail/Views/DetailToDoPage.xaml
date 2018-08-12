@@ -10,21 +10,8 @@
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="#"/>
-                <Entry x:Name="enNoteId" Text="{Binding Note.NoteId}" Placeholder="Id"/>
-            </StackLayout>
-
+            <Entry x:Name="enNoteId" IsEnabled="False" Text="{Binding Note.NoteId}" Placeholder="Id"/>
             <Entry x:Name="enNoteText" Text="{Binding Note.NoteText}" Placeholder="Description"/>
-
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Date Start"/>
-                <DatePicker x:Name="dpNoteStart" Date="{Binding Note.NoteStart}"/>
-            </StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Date Finish"/>
-                <DatePicker x:Name="dpNoteFinish" Date="{Binding Note.NoteFinish}"/>
-            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

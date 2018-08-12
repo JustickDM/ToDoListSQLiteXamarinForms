@@ -14,29 +14,25 @@ namespace ToDoList.Controls.MasterDetail.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class DetailToDoPage : ContentPage
 	{
-        private Note Note { get; set; }
+        public Note Note { get; set; }
 
         public DetailToDoPage (Note note)
 		{
 			InitializeComponent ();
-            enNoteId.Text = note.NoteId.ToString();
-            enNoteText.Text = note.NoteText;
-            dpNoteStart.Date = note.NoteDateTimeStart.Date;
-            dpNoteFinish.Date = note.NoteDateTimeFinish.Date;
+            this.Note = note;
+            BindingContext = this;
 		}
 
-        private void Update_Clicked(object sender, EventArgs e)
+        private async void Update_Clicked(object sender, EventArgs e)
         {
-            Note.NoteId = int.Parse(enNoteId.Text);
-            Note.NoteText = enNoteText.Text;
-            Note.NoteDateTimeStart = dpNoteStart.Date;
-            Note.NoteDateTimeFinish = dpNoteStart.Date;
-            //viewModel.UpdateNote(Note);
+            MessagingCenter.Send(this, "UpdateCommand", Note);
+            await Navigation.PopModalAsync();
         }
 
-        private void Remove_Clicked(object sender, EventArgs e)
+        private async void Remove_Clicked(object sender, EventArgs e)
         {
-            //viewModel.RemoveNote(int.Parse(enNoteId.Text));
+            MessagingCenter.Send(this, "RemoveCommand", Note.NoteId);
+            await Navigation.PopModalAsync();
         }
     }
 }

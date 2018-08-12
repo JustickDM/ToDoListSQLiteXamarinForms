@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using ToDoList;
 using ToDoList.Controls.MasterDetail.Views;
 using ToDoList.Controls.MasterDetail.Items;
+using ToDoList.ViewModels;
 
 namespace ToDoList.Controls.MasterDetail.Views
 {
@@ -13,12 +14,6 @@ namespace ToDoList.Controls.MasterDetail.Views
             InitializeComponent();
 
             masterPage.listView.ItemSelected += OnItemSelected;
-
-            if (Device.RuntimePlatform == Device.UWP)
-            {
-                MasterBehavior = MasterBehavior.Popover;
-            }
-
         }
 
         void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
