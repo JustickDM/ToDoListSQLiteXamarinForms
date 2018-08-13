@@ -25,13 +25,26 @@ namespace ToDoList.Controls.MasterDetail.Views
 
         private async void Update_Clicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "UpdateCommand", Note);
-            await Navigation.PopModalAsync();
+            bool result = await DisplayAlert("Confirm action", "Do you want to update the entry?", "Yes", "No");
+            if(result)
+            {
+                MessagingCenter.Send(this, "UpdateCommand", Note);
+                await Navigation.PopModalAsync();
+            }
         }
 
         private async void Remove_Clicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "RemoveCommand", Note.NoteId);
+            bool result = await DisplayAlert("Confirm action", "Do you want to delete the entry?", "Yes", "No");
+            if (result)
+            {
+                MessagingCenter.Send(this, "RemoveCommand", Note.NoteId);
+                await Navigation.PopModalAsync();
+            }
+        }
+
+        private async void Back_Clicked(object sender, EventArgs e)
+        {
             await Navigation.PopModalAsync();
         }
     }

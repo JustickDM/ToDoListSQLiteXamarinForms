@@ -4,7 +4,7 @@
 			 x:Class="ToDoList.Controls.MasterDetail.Views.ToDoListPage"
 			 Title="ToDoList Page">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add"
+        <ToolbarItem Icon="plusSymbol.png"
                      Clicked="Add_Clicked">
         </ToolbarItem>
     </ContentPage.ToolbarItems>

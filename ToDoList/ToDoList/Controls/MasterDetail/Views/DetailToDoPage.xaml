@@ -3,15 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ToDoList.Controls.MasterDetail.Views.DetailToDoPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Update"
-                     Clicked="Update_Clicked"/>
+        <ToolbarItem Icon="leftArrow.png"
+                     Clicked="Back_Clicked"/>
         <ToolbarItem Text="Remove"
+                     Priority="1"
+                     Order="Secondary"
                      Clicked="Remove_Clicked"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
-            <Entry x:Name="enNoteId" IsEnabled="False" Text="{Binding Note.NoteId}" Placeholder="Id"/>
-            <Entry x:Name="enNoteText" Text="{Binding Note.NoteText}" Placeholder="Description"/>
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Entry x:Name="enNoteId"
+                   Text="{Binding Note.NoteId}" 
+                   Placeholder="Id"
+                   IsEnabled="False"
+                   Grid.Row="0"/>
+            <Entry x:Name="enNoteText" 
+                   Text="{Binding Note.NoteText}" 
+                   Placeholder="Description"
+                   Grid.Row="1"/>
+            <Button Text="Update"
+                    Clicked="Update_Clicked"
+                    Grid.Row="2"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

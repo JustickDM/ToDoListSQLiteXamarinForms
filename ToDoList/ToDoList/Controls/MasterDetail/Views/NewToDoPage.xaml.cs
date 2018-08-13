@@ -11,21 +11,26 @@ using ToDoList.ViewModels;
 
 namespace ToDoList.Controls.MasterDetail.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class NewToDoPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class NewToDoPage : ContentPage
+    {
         public Note Note { get; set; }
 
-        public NewToDoPage ()
-		{
-			InitializeComponent ();
+        public NewToDoPage()
+        {
+            InitializeComponent();
             Note = new Note();
             BindingContext = this;
-		}
+        }
 
         private async void Save_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "AddCommand", Note);
+            await Navigation.PopModalAsync();
+        }
+
+        private async void Back_Clicked(object sender, EventArgs e)
+        {
             await Navigation.PopModalAsync();
         }
     }

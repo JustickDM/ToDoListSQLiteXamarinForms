@@ -21,6 +21,7 @@ namespace ToDoList.Controls.MasterDetail.Views
             var item = e.SelectedItem as MasterPageItem;
             if (item != null)
             {
+                var page = 
                 Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));
                 masterPage.listView.SelectedItem = null;
                 IsPresented = false;

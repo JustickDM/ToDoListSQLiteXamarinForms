@@ -3,12 +3,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ToDoList.Controls.MasterDetail.Views.NewToDoPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Save" Clicked="Save_Clicked"/>
+        <ToolbarItem Icon="leftArrow.png"
+                     Clicked="Back_Clicked"/>
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
-        <StackLayout>
-            <Entry x:Name="enNoteText" Text="{Binding Note.NoteText}" Placeholder="Description"/>
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <Entry x:Name="enNoteText" 
+                   Text="{Binding Note.NoteText}" 
+                   Placeholder="Description"
+                   Grid.Row="0"/>
+            <Button Text="Save"
+                    Clicked="Save_Clicked"
+                    Grid.Row="1"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

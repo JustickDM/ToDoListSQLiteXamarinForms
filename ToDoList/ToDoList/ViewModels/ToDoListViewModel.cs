@@ -31,17 +31,20 @@ namespace ToDoList.ViewModels
                 var _note = note as Note;
                 await NotesRepository.AddNoteAsync(_note);
                 Notes = NotesRepository.GetNotesAsync().Result;
+                DependencyService.Get<IMessage>().ShortAlert("Note added");
             });
             MessagingCenter.Subscribe<DetailToDoPage, Note>(this, "UpdateCommand", async (obj, note) =>
             {
                 var _note = note as Note;
                 await NotesRepository.UpdateNoteAsync(_note);
                 Notes = NotesRepository.GetNotesAsync().Result;
+                DependencyService.Get<IMessage>().ShortAlert("Note Updated");
             });
             MessagingCenter.Subscribe<DetailToDoPage, int>(this, "RemoveCommand", async (obj, noteId) =>
             {
                 await NotesRepository.RemoveNoteAsync(noteId);
                 Notes = NotesRepository.GetNotesAsync().Result;
+                DependencyService.Get<IMessage>().ShortAlert("Note removed");
             });
         }
     }
