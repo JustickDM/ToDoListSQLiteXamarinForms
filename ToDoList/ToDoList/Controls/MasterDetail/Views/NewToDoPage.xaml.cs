@@ -7,8 +7,6 @@ using ToDoList.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-using ToDoList.ViewModels;
-
 namespace ToDoList.Controls.MasterDetail.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]

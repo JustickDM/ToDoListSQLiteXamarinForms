@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 			 x:Class="ToDoList.Controls.MasterDetail.Views.ToDoListPage"
+             xmlns:converters="clr-namespace:ToDoList.Converters"
 			 Title="ToDoList Page">
+
     <ContentPage.ToolbarItems>
         <ToolbarItem Icon="plusSymbol.png"
                      Clicked="Add_Clicked">
@@ -12,19 +14,44 @@
     <ContentPage.Content>
         <StackLayout Spacing="10"
                      Padding="20">
-
             <ListView x:Name="List" 
                   ItemsSource="{Binding Notes}"
                   ItemSelected="List_ItemSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding NoteId}"/>
-                                    <Label Text="{Binding NoteText}"/>
-                                </StackLayout>
-                            </StackLayout>
+                            <Grid ColumnSpacing="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition Width="40"></ColumnDefinition>
+                                    <ColumnDefinition Width="40"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                
+                                <Label Text="{Binding NoteId}"
+                                       TextColor="Black"
+                                       VerticalOptions="Center"
+                                       Grid.Row="0"
+                                       Grid.Column="0"/>
+                                <Label Text="{Binding NoteText}"
+                                       TextColor="Black"
+                                        VerticalOptions="Center"
+                                       Grid.Row="0"
+                                       Grid.Column="1"/>
+                                <Button Grid.Row="0"
+                                        Grid.Column="3"
+                                        Text="X"
+                                        FontSize="Large"
+                                        TextColor="Black"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        BackgroundColor="Transparent"
+                                        BorderColor="Transparent"
+                                        Clicked="Remove_Clicked"/>
+                            </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

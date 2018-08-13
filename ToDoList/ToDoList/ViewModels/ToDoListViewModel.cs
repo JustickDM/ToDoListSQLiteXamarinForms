@@ -40,7 +40,7 @@ namespace ToDoList.ViewModels
                 Notes = NotesRepository.GetNotesAsync().Result;
                 DependencyService.Get<IMessage>().ShortAlert("Note Updated");
             });
-            MessagingCenter.Subscribe<DetailToDoPage, int>(this, "RemoveCommand", async (obj, noteId) =>
+            MessagingCenter.Subscribe<ToDoListPage, int>(this, "RemoveCommand", async (obj, noteId) =>
             {
                 await NotesRepository.RemoveNoteAsync(noteId);
                 Notes = NotesRepository.GetNotesAsync().Result;

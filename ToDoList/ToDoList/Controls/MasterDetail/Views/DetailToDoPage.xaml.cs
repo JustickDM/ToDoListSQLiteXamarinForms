@@ -7,8 +7,6 @@ using ToDoList.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-using ToDoList.Interfaces;
-
 namespace ToDoList.Controls.MasterDetail.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
@@ -19,7 +17,7 @@ namespace ToDoList.Controls.MasterDetail.Views
         public DetailToDoPage (Note note)
 		{
 			InitializeComponent ();
-            this.Note = note;
+            Note = note;
             BindingContext = this;
 		}
 
@@ -29,16 +27,6 @@ namespace ToDoList.Controls.MasterDetail.Views
             if(result)
             {
                 MessagingCenter.Send(this, "UpdateCommand", Note);
-                await Navigation.PopModalAsync();
-            }
-        }
-
-        private async void Remove_Clicked(object sender, EventArgs e)
-        {
-            bool result = await DisplayAlert("Confirm action", "Do you want to delete the entry?", "Yes", "No");
-            if (result)
-            {
-                MessagingCenter.Send(this, "RemoveCommand", Note.NoteId);
                 await Navigation.PopModalAsync();
             }
         }

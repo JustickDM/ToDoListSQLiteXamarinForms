@@ -1,20 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ToDoList.Controls.MasterDetail.Views.DetailToDoPage">
+             x:Class="ToDoList.Controls.MasterDetail.Views.DetailToDoPage"
+             Title="DetailToDo Page">
     <ContentPage.ToolbarItems>
         <ToolbarItem Icon="leftArrow.png"
                      Clicked="Back_Clicked"/>
-        <ToolbarItem Text="Remove"
-                     Priority="1"
-                     Order="Secondary"
-                     Clicked="Remove_Clicked"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"></RowDefinition>
-                <RowDefinition Height="50"></RowDefinition>
+                <RowDefinition></RowDefinition>
                 <RowDefinition Height="50"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -26,10 +23,8 @@
                    Placeholder="Id"
                    IsEnabled="False"
                    Grid.Row="0"/>
-            <Entry x:Name="enNoteText" 
-                   Text="{Binding Note.NoteText}" 
-                   Placeholder="Description"
-                   Grid.Row="1"/>
+            <Editor Text="{Binding Note.NoteText}"
+                    Grid.Row="1"/>
             <Button Text="Update"
                     Clicked="Update_Clicked"
                     Grid.Row="2"/>

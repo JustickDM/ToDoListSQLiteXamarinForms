@@ -4,9 +4,7 @@
              xmlns:views="clr-namespace:ToDoList.Controls.MasterDetail.Views"
              xmlns:items="clr-namespace:ToDoList.Controls.MasterDetail.Items"
 			 x:Class="ToDoList.Controls.MasterDetail.Views.MasterPage"
-			 Padding="0,40,0,0"
-			 Icon="hamburger.png"
-			 Title="Personal Organiser">
+			 Padding="0,40,0,0">
     <StackLayout BackgroundColor="#2196F3">
         <ListView x:Name="listView" x:FieldModifier="public">
            <ListView.ItemsSource>
