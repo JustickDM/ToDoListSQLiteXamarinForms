@@ -12,9 +12,6 @@
                     <items:MasterPageItem Title="TodoList" 
                                           IconSource="todo.png" 
                                           TargetType="{x:Type views:ToDoListPage}" />
-                    <items:MasterPageItem Title="About" 
-                                          IconSource="contacts.png" 
-                                          TargetType="{x:Type views:AboutPage}" />
                 </x:Array>
             </ListView.ItemsSource>
             <ListView.ItemTemplate>
