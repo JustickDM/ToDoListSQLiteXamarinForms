@@ -16,13 +16,13 @@ namespace ToDoList.Controls.MasterDetail.Views
             masterPage.listView.ItemSelected += OnItemSelected;
         }
 
-        void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var item = e.SelectedItem as MasterPageItem;
             if (item != null)
             {
-                var page = 
-                Detail = new NavigationPage((Page)Activator.CreateInstance(item.TargetType));
+                var page = (Page)Activator.CreateInstance(item.TargetType);
+                await (this?.Detail as NavigationPage)?.PushAsync(page);
                 masterPage.listView.SelectedItem = null;
                 IsPresented = false;
             }

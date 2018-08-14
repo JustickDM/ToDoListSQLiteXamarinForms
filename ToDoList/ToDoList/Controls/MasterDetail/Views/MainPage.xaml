@@ -12,7 +12,7 @@
 	<MasterDetailPage.Detail>
 		<NavigationPage>
 			<x:Arguments>
-				<views:ToDoListPage/>
+				<views:AboutPage/>
 			</x:Arguments>
 		</NavigationPage>
 	</MasterDetailPage.Detail>
