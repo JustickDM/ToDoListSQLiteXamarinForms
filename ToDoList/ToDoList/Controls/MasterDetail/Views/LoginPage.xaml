@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToDoList.Controls.MasterDetail.Views.LoginPage">
+    <ContentPage.Content>
+        <Grid VerticalOptions="CenterAndExpand"
+              HorizontalOptions="CenterAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Entry x:Name="enLogin"
+                   Placeholder="Login"
+                   Grid.Row="0"
+                   Grid.ColumnSpan="2"/>
+            <Entry x:Name="enPassword"
+                   IsPassword="True" 
+                   Placeholder="Password"
+                   Grid.Row="1"
+                   Grid.ColumnSpan="2"/>
+            <Button Text="Login"
+                    Clicked="Login_Clicked"
+                    Grid.Column="0"
+                    Grid.Row="2"/>
+            <Button Text="Exit"
+                    Clicked="Exit_Clicked"
+                    Grid.Column="1"
+                    Grid.Row="2"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

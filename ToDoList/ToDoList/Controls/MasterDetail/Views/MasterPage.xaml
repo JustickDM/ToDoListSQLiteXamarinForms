@@ -12,6 +12,12 @@
                     <items:MasterPageItem Title="ToDo" 
                                           IconSource="todo.png" 
                                           TargetType="{x:Type views:TabPage}" />
+                    <items:MasterPageItem Title="Connection"
+                                          IconSource="star.png"
+                                          TargetType="{x:Type views:ConnectionPage}" />
+                    <items:MasterPageItem Title="Logout"
+                                          IconSource="contacts.png"
+                                          TargetType="{x:Type views:LoginPage}" />
                 </x:Array>
             </ListView.ItemsSource>
             <ListView.ItemTemplate>

@@ -15,7 +15,7 @@
             </Grid.ColumnDefinitions>
             
             <Entry x:Name="enNoteText" 
-                   Text="{Binding Note.NoteText}" 
+                   Text="{Binding Note.NoteText, Mode=TwoWay}" 
                    Placeholder="Description"
                    Grid.Row="0"/>
             <Button Text="Save"
