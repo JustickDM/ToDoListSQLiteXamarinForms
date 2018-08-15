@@ -5,12 +5,6 @@
              xmlns:converters="clr-namespace:ToDoList.Converters"
 			 Title="ToDoList Page">
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Icon="plusSymbol.png"
-                     Clicked="Add_Clicked">
-        </ToolbarItem>
-    </ContentPage.ToolbarItems>
-    
     <ContentPage.Content>
         <StackLayout Spacing="10"
                      Padding="20">

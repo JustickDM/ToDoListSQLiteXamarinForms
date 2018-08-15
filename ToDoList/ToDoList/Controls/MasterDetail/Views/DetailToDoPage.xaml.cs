@@ -27,13 +27,8 @@ namespace ToDoList.Controls.MasterDetail.Views
             if(result)
             {
                 MessagingCenter.Send(this, "UpdateCommand", Note);
-                await Navigation.PopModalAsync();
+                await Navigation.PopAsync();
             }
-        }
-
-        private async void Back_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PopModalAsync();
         }
     }
 }

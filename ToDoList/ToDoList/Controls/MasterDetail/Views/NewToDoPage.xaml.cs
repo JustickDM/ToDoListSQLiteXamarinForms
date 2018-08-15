@@ -21,15 +21,10 @@ namespace ToDoList.Controls.MasterDetail.Views
             BindingContext = this;
         }
 
-        private async void Save_Clicked(object sender, EventArgs e)
+        private void Save_Clicked(object sender, EventArgs e)
         {
             MessagingCenter.Send(this, "AddCommand", Note);
-            await Navigation.PopModalAsync();
-        }
-
-        private async void Back_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PopModalAsync();
+            Note.NoteText = string.Empty;
         }
     }
 }

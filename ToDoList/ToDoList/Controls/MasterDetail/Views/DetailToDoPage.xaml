@@ -4,15 +4,14 @@
              x:Class="ToDoList.Controls.MasterDetail.Views.DetailToDoPage"
              Title="DetailToDo Page">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Icon="leftArrow.png"
-                     Clicked="Back_Clicked"/>
+        <ToolbarItem Text="Update"
+                     Clicked="Update_Clicked"/>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"></RowDefinition>
                 <RowDefinition></RowDefinition>
-                <RowDefinition Height="50"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
@@ -25,9 +24,6 @@
                    Grid.Row="0"/>
             <Editor Text="{Binding Note.NoteText}"
                     Grid.Row="1"/>
-            <Button Text="Update"
-                    Clicked="Update_Clicked"
-                    Grid.Row="2"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

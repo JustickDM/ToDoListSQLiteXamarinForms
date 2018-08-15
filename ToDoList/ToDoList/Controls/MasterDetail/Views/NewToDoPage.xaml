@@ -3,11 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ToDoList.Controls.MasterDetail.Views.NewToDoPage"
              Title="NewToDo Page">
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Icon="leftArrow.png"
-                     Clicked="Back_Clicked"/>
-    </ContentPage.ToolbarItems>
-    
+
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>

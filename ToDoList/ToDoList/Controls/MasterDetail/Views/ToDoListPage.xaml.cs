@@ -17,14 +17,9 @@ namespace ToDoList.Controls.MasterDetail.Views
             if (e.SelectedItem != null)
             {
                 var selectedNote = (Note)e.SelectedItem;
-                await Navigation.PushModalAsync(new NavigationPage(new DetailToDoPage(selectedNote)));
+                await Navigation.PushAsync(new DetailToDoPage(selectedNote));
                 List.SelectedItem = null;
             }
-        }
-
-        private async void Add_Clicked(object sender, System.EventArgs e)
-        {
-            await Navigation.PushModalAsync(new NavigationPage(new NewToDoPage()));
         }
 
         private async void Remove_Clicked(object sender, System.EventArgs e)
