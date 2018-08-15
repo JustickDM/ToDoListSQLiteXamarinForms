@@ -16,7 +16,7 @@
                         <ViewCell>
                             <Grid ColumnSpacing="10">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="50"></RowDefinition>
+                                    <RowDefinition></RowDefinition>
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="30"></ColumnDefinition>
@@ -38,8 +38,8 @@
                                 <Button Grid.Row="0"
                                         Grid.Column="3"
                                         Text="X"
-                                        FontSize="Large"
-                                        TextColor="Black"
+                                        FontSize="Small"
+                                        TextColor="#2196F3"
                                         HorizontalOptions="Center"
                                         VerticalOptions="Center"
                                         BackgroundColor="Transparent"

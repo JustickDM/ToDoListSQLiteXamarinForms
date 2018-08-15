@@ -10,7 +10,7 @@
            <ListView.ItemsSource>
                 <x:Array Type="{x:Type items:MasterPageItem}">
                     <items:MasterPageItem Title="ToDo" 
-                                          IconSource="contacts.png" 
+                                          IconSource="todo.png" 
                                           TargetType="{x:Type views:TabPage}" />
                 </x:Array>
             </ListView.ItemsSource>
