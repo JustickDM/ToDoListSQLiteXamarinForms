@@ -3,10 +3,11 @@
 
   <style name="Theme.Splash"
          parent="android:Theme">
-    <item name="android:windowBackground" >@drawable/splashscreen</item>
+    <item name="android:windowBackground">@drawable/splashScreen</item>
     <item name="android:windowNoTitle">true</item>
     <item name="android:windowFullscreen">true</item>
     <item name="android:windowContentOverlay">@null</item>
+    <item name="android:windowActionBar">true</item>
   </style>
   
   <style name="MainTheme" parent="MainTheme.Base">
