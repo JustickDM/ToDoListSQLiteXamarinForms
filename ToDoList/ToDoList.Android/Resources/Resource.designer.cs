@@ -2204,26 +2204,26 @@ namespace ToDoList.Droid
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-			// aapt resource value: 0x7f020111
-			public const int avd_hide_password_1 = 2130837777;
-			
 			// aapt resource value: 0x7f020112
-			public const int avd_hide_password_2 = 2130837778;
+			public const int avd_hide_password_1 = 2130837778;
 			
 			// aapt resource value: 0x7f020113
-			public const int avd_hide_password_3 = 2130837779;
+			public const int avd_hide_password_2 = 2130837779;
+			
+			// aapt resource value: 0x7f020114
+			public const int avd_hide_password_3 = 2130837780;
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
-			// aapt resource value: 0x7f020114
-			public const int avd_show_password_1 = 2130837780;
-			
 			// aapt resource value: 0x7f020115
-			public const int avd_show_password_2 = 2130837781;
+			public const int avd_show_password_1 = 2130837781;
 			
 			// aapt resource value: 0x7f020116
-			public const int avd_show_password_3 = 2130837782;
+			public const int avd_show_password_2 = 2130837782;
+			
+			// aapt resource value: 0x7f020117
+			public const int avd_show_password_3 = 2130837783;
 			
 			// aapt resource value: 0x7f020055
 			public const int contacts = 2130837589;
@@ -2771,11 +2771,11 @@ namespace ToDoList.Droid
 			// aapt resource value: 0x7f02010a
 			public const int notification_icon_background = 2130837770;
 			
-			// aapt resource value: 0x7f02010f
-			public const int notification_template_icon_bg = 2130837775;
-			
 			// aapt resource value: 0x7f020110
-			public const int notification_template_icon_low_bg = 2130837776;
+			public const int notification_template_icon_bg = 2130837776;
+			
+			// aapt resource value: 0x7f020111
+			public const int notification_template_icon_low_bg = 2130837777;
 			
 			// aapt resource value: 0x7f02010b
 			public const int notification_tile_bg = 2130837771;
@@ -2784,10 +2784,13 @@ namespace ToDoList.Droid
 			public const int notify_panel_notification_icon_bg = 2130837772;
 			
 			// aapt resource value: 0x7f02010d
-			public const int star = 2130837773;
+			public const int splashscreen = 2130837773;
 			
 			// aapt resource value: 0x7f02010e
-			public const int todo = 2130837774;
+			public const int star = 2130837774;
+			
+			// aapt resource value: 0x7f02010f
+			public const int todo = 2130837775;
 			
 			static Drawable()
 			{
@@ -3650,7 +3653,10 @@ namespace ToDoList.Droid
 			public const int icon = 2130903040;
 			
 			// aapt resource value: 0x7f030001
-			public const int launcher_foreground = 2130903041;
+			public const int icon_round = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int launcher_foreground = 2130903042;
 			
 			static Mipmap()
 			{
@@ -3879,8 +3885,8 @@ namespace ToDoList.Droid
 			// aapt resource value: 0x7f0c0170
 			public const int Animation_Design_BottomSheetDialog = 2131493232;
 			
-			// aapt resource value: 0x7f0c018b
-			public const int AppCompatDialogStyle = 2131493259;
+			// aapt resource value: 0x7f0c018c
+			public const int AppCompatDialogStyle = 2131493260;
 			
 			// aapt resource value: 0x7f0c00b2
 			public const int Base_AlertDialog_AppCompat = 2131493042;
@@ -4356,11 +4362,11 @@ namespace ToDoList.Droid
 			// aapt resource value: 0x7f0c000e
 			public const int CardView_Light = 2131492878;
 			
-			// aapt resource value: 0x7f0c0189
-			public const int MainTheme = 2131493257;
-			
 			// aapt resource value: 0x7f0c018a
-			public const int MainTheme_Base = 2131493258;
+			public const int MainTheme = 2131493258;
+			
+			// aapt resource value: 0x7f0c018b
+			public const int MainTheme_Base = 2131493259;
 			
 			// aapt resource value: 0x7f0c002d
 			public const int Platform_AppCompat = 2131492909;
@@ -4763,6 +4769,9 @@ namespace ToDoList.Droid
 			
 			// aapt resource value: 0x7f0c0006
 			public const int Theme_MediaRouter_LightControlPanel = 2131492870;
+			
+			// aapt resource value: 0x7f0c0189
+			public const int Theme_Splash = 2131493257;
 			
 			// aapt resource value: 0x7f0c011f
 			public const int ThemeOverlay_AppCompat = 2131493151;
